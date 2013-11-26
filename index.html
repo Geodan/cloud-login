@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+<title>login geodan global account</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js?ver=3.5.2"></script>
+<script src="login.js"></script>
+</head>
+<body>
+<iframe style="display:none;" src="https://auth.geodan.nl:8443/hellocas/whoami.jsp"></iframe>
+<div id="geodan-cas-login" style="display:none">
+    <form class="geodan-cas-auth-login" type="submit" method="post">
+        <input class="geodan-cas geodan-cas-hidden" type="hidden" name="lt" value="${loginTicket}" />
+        <input class="geodan-cas geodan-cas-input geodan-cas-username" type="text" name="username" value=""/>
+        <input class="geodan-cas geodan-cas-input geodan-cas-password" type="password" name="password" value="">
+        <input class="geodan-cas geodan-cas-hidden geodan-cas-redirect"  type="hidden" name="service" value=""/>
+        <input class="geodan-cas geodan-cas-hidden" type="hidden" name="auto" value="true"/>
+        <button class="geodan-cas geodan-cas-button geodan-cas-login-button" type="submit" value="submit">Login</button>
+    </form>
+    <a class="geodan-cas geodan-cas-password-reset">Wachtwoord vergeten?</a><br/>
+    <a class="geodan-cas geodan-cas-newaccount">Nieuw account</a>
+</div>
+<div id="geodan-cas-loguit" style="display:none">
+    <span id="naam" class="geodan-cas geodan-cas-name"></span>
+    <form class="geodan-cas geodan-cas-auth-loguit" TYPE="submit" method="get">
+        <input class="geodan-cas geodan-cas-hidden geodan-cas-redirect" type="hidden" name="forwardUrl" value=""/>
+        <button class="geodan-cas geodan-cas-button geodan-cas-loguit-button" type="submit" value="submit">Logout</button>
+    </form>
+</div>
+</body>
+</html>
