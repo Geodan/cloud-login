@@ -24,7 +24,7 @@ var docUrl = function() {
             search += value +'='+$.getUrlVar(value) + '&';
         }
     });
-    return window.location.href.split('?')[0] + '?' + search;
+    return window.location.href.split('?')[0] + '?' + encodeURIComponent(search);
 }
 
 //A minor hack: the login service will return with an ticket URL parameter. 
@@ -43,7 +43,8 @@ var geodanLogin = function() {
     var checkurl = "https://auth.geodan.nl:8443/geocas/whoami.jsp";   
 
     //Make sure it redirects back to the current page after the user action
-    $('.geodan-cas-redirect').val(docUrl());
+    $('.geodan-cas-redirect').val(decodeURIComponent(docUrl()));
+	  $('.geodan-cas-auth-loguit .geodan-cas-redirect').val(docUrl());
 
     //Set the login and loguit urls for the form
     $('.geodan-cas-auth-login').prop('action',loginurl);
