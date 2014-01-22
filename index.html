@@ -7,12 +7,12 @@
 <script src="login.js"></script>
 </head>
 <body>
-<iframe style="display:none;" src="https://auth.geodan.nl:8443/geocas/whoami.jsp"></iframe>
+<iframe style="display:none;" src="https://services.geodan.nl/geocas/whoami.jsp"></iframe>
 <div id="geodan-cas-login" style="display:none">
     <form class="geodan-cas-auth-login" type="submit" method="post">
         <input class="geodan-cas geodan-cas-hidden" type="hidden" name="lt" value="${loginTicket}" />
-        <input class="geodan-cas geodan-cas-input geodan-cas-username" type="text" name="username" value="bob@bouwer.nl"/>
-        <input class="geodan-cas geodan-cas-input geodan-cas-password" type="password" name="password" value="secret">
+        <input class="geodan-cas geodan-cas-input geodan-cas-username" type="text" name="username" value=""/>
+        <input class="geodan-cas geodan-cas-input geodan-cas-password" type="password" name="password" value="">
         <input class="geodan-cas geodan-cas-hidden geodan-cas-redirect"  type="hidden" name="service" value=""/>
         <input class="geodan-cas geodan-cas-hidden" type="hidden" name="auto" value="true"/>
         <button class="geodan-cas geodan-cas-button geodan-cas-login-button" type="submit" value="submit">Login</button>

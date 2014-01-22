@@ -30,17 +30,17 @@ var docUrl = function() {
 //A minor hack: the login service will return with an ticket URL parameter. 
 //It is a bit nicer to remove it, whilst doing so we can directly get the user credentials
 if($.getUrlVar('ticket')) {        
-        location.href="https://auth.geodan.nl:8443/geocas/whoami.jsp?forwardUrl="+docUrl();
+        location.href="https://services.geodan.nl/geocas/whoami.jsp?forwardUrl="+docUrl();
 }
 
 var geodanLogin = function() {
 
      //Set the various urls for the cloud login 
-    var loginurl = "https://auth.geodan.nl:8443/cas/login";
-    var loguiturl = "https://auth.geodan.nl:8443/geocas/cas-logout.jsp";
-    var newurl = "https://auth.geodan.nl:8443/pwm/public/NewUser" +"?forwardURL=" + docUrl();
-    var reseturl = "https://auth.geodan.nl:8443/pwm/public/ForgottenPassword" + "?forwardURL=" + docUrl();
-    var checkurl = "https://auth.geodan.nl:8443/geocas/whoami.jsp";   
+    var loginurl = "https://services.geodan.nl/cas/login";
+    var loguiturl = "https://services.geodan.nl/geocas/cas-logout.jsp";
+    var newurl = "https://services.geodan.nl/account/public/NewUser" +"?forwardURL=" + docUrl();
+    var reseturl = "https://services.geodan.nl/account/public/ForgottenPassword" + "?forwardURL=" + docUrl();
+    var checkurl = "https://services.geodan.nl/geocas/whoami.jsp";   
 
     //Make sure it redirects back to the current page after the user action
     $('.geodan-cas-redirect').val(decodeURIComponent(docUrl()));

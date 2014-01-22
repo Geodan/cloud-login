@@ -2,89 +2,13 @@
 <meta charset="utf-8">
 <html>
 <head>
-<title>login geodan global account</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js?ver=3.5.2"></script>
-<style>
-.geodan-cas {
-    color: red !important;
-}
-</style>
-<script>
-$.extend({
-  getUrlVars: function(){
-    var vars = [], hash;
-    if(window.location.href.indexOf('?')<0) return [];
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
-      hash = hashes[i].split('=');
-      vars.push(hash[0]);
-      vars[hash[0]] = hash[1];
-    }
-    return vars;
-  },
-  getUrlVar: function(name){
-    return $.getUrlVars()[name];
-  }
-});
-var docUrl = function() {
-    var search = '';
-    $.each($.getUrlVars(), function(key,value) {
-        if(value != 'ticket' && value != 'forwardUrl' && value != '') {
-            search += value +'='+$.getUrlVar(value) + '&';
-        }
-    });
-    return window.location.href.split('?')[0] + '?' + search;
-}
-
-if($.getUrlVar('ticket')) {
-    location.href="https://auth.geodan.nl:8443/geocas/whoamie.jsp?forwardUrl="+docUrl()+'#login';
-   
-}
-
-var geodanLogin = function() {
+<title>login geodan global account - IE versie</title>
 
 
-     //Set the various urls    
-    var loginurl = "https://auth.geodan.nl:8443/cas/login?type=basic";
-    var loguiturl = "https://auth.geodan.nl:8443/geocas/cas-logout.jsp";
-    var newurl = "https://auth.geodan.nl:8443/pwm/public/NewUser" +"?forwardURL=" + docUrl();
-    var reseturl = "https://auth.geodan.nl:8443/pwm/public/ForgottenPassword" + "?forwardURL=" + docUrl();
-    var checkurl = "https://auth.geodan.nl:8443/geocas/whoamie.jsp";   
-    //var checkurl = "http://hades/test.fsad";
-
-    //Make sure it redirects back to the current page after the user action
-    $('.geodan-cas-redirect').val(docUrl());
-
-    //Set the login and loguit urls for the form
-    $('.geodan-cas-auth-login').prop('action',loginurl);
-    $('.geodan-cas-auth-loguit').prop('action',loguiturl);
-    $('.geodan-cas-password-reset').prop('href',reseturl);
-    $('.geodan-cas-newaccount').prop('href',newurl);
-    var timestamp =new Date().getTime();
-    checkurl = checkurl+'?'+timestamp;
-    if(location.href.indexOf('#login') > -1 ) {
-      //  $('#geodan-cas-logoutframe').show();
-       // $('#geodan-cas-login').hide();
-    }
-    else {        
-      //  $('#geodan-cas-login').show();
-    //    $('#geodan-cas-logoutframe').hide();
-    }
-    
-
-}
-
-$(document).ready(function(){
-    geodanLogin();
-   
- 
-});
-</script>
 </head>
 <body>
 <div id="geodan-cas-login" style="">
-    <iframe id="geodan-cas-logoutframe" src="https://auth.geodan.nl:8443/cas/login?type=basic&service=https://auth.geodan.nl:8443/geocas/whoamie.jsp" />
+    <iframe id="geodan-cas-logoutframe" src="https://services.geodan.nl/cas/login?type=basic&service=https://services.geodan.nl/geocas/whoamie.jsp" />
 
 </div>
 
