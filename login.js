@@ -62,10 +62,16 @@ var geodanLogin = function() {
             withCredentials: true
         },
         success: function(a)
-        {   
-            $('#naam').html('Welkom '+a.FirstName);
-            $('#geodan-cas-loguit').show();
-            $('#geodan-cas-login').hide();
+        {
+             if(typeof(a) !== 'object') {
+                $('#geodan-cas-login').show();
+                $('#geodan-cas-loguit').hide();
+            }
+            else {
+                $('#naam').html('Welkom '+a.FirstName);
+                $('#geodan-cas-loguit').show();
+                $('#geodan-cas-login').hide();
+            }
         },
 
         error: function(a,b) {
