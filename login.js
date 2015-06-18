@@ -37,7 +37,7 @@ var geodanLogin = function() {
 
      //Set the various urls for the cloud login 
     var loginurl = "https://services.geodan.nl/cas/login";
-    var loguiturl = "https://services.geodan.nl/geocas/cas-logout.jsp";
+    var loguiturl = "https://services.geodan.nl/geocas/cas-logout.jsp" +"?forwardURL=" + docUrl();
     var newurl = "https://services.geodan.nl/account/public/NewUser" +"?forwardURL=" + docUrl();
     var reseturl = "https://services.geodan.nl/account/public/ForgottenPassword" + "?forwardURL=" + docUrl();
     var checkurl = "https://services.geodan.nl/geocas/whoami.jsp";   
